@@ -1,0 +1,29 @@
+# pycharm section
+.idea/
+/venv/
+
+# packer section
+packer/variables.json
+packer/config.pkr.hcl
+
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform
+/terraform/.terraform.lock.hcl
+/terraform/stage/.terraform.lock.hcl
+/terraform/stage/.terraform.tfstate.lock.info
+/terraform/prod/.terraform.lock.hcl
+
+#ansible
+*.retry
+
+# Vagrant & molecule
+/ansible/.vagrant/
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
