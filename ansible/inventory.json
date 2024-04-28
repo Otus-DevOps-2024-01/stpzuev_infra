@@ -1,15 +1,15 @@
 {
     "app": {
         "hosts": {
-            "158.160.48.94": null
+            "178.154.222.150": null
         }
     },
     "db": {
         "hosts": {
-            "10.128.0.28": null
+            "10.128.0.18": null
         },
         "vars": {
-            "ansible_ssh_common_args": "-J ubuntu@158.160.48.94"
+            "ansible_ssh_common_args": "-J ubuntu@178.154.222.150"
         }
     }
 }
