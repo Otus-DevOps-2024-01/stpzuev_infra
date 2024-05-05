@@ -14,10 +14,9 @@
       notify: restart mongodb
 
   handlers:
-        - name: restart mongodb
-          become: true
-          service: name=mongodb state=restarted
-
+    - name: restart mongodb
+      become: true
+      service: name=mongodb state=restarted
 
 - name: Add config for DB connection
   become: true
@@ -38,7 +37,6 @@
     - name: reload puma
       become: true
       systemd: name=puma state=restarted
-
 
 - name: Enable puma
   become: true
