@@ -3,11 +3,11 @@
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0
-    db_host: "{{ hostvars[groups['db'][0]].inventory_hostname }}"
+    db_host: 10.128.0.28
   tasks:
     - name: Change mongo config file
       become: true
-      ansible.builtin.template:
+      template:
         src: templates/mongod.conf.j2
         dest: /etc/mongodb.conf
       tags: db-tag
@@ -15,14 +15,14 @@
 
     - name: Add config for DB connection
       become: true
-      ansible.builtin.template:
+      template:
         src: templates/db_config.j2
         dest: /home/ubuntu/db_config
       tags: app-tag
 
     - name: Add unit file for Puma
       become: true
-      ansible.builtin.copy:
+      copy:
         src: files/puma.service
         dest: /etc/systemd/system/puma.service
       tags: app-tag
