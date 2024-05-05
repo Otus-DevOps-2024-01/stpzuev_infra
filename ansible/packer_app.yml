@@ -1,5 +1,5 @@
 ---
-#- name: Install Ruby && Bundler
+- name: Install Ruby && Bundler
   hosts: all
   become: true
   tasks:
