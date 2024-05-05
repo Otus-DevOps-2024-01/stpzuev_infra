@@ -1,5 +1,5 @@
 ---
-- name: Configure hosts & deploy application
+#- name: Configure hosts & deploy application
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0
