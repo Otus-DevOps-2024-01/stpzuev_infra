@@ -46,7 +46,10 @@
         chdir: /home/ubuntu/reddit
       tags: deploy-tag
 
-handlers:
+  handlers:
+  - name: restart mongodb
+    become: true
+    service: name=mongodb state=restarted
   - name: reload puma
     become: true
     systemd: name=puma state=restarted
