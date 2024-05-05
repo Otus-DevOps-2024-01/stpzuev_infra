@@ -12,12 +12,6 @@
         dest: /etc/mongodb.conf
       tags: db-tag
       notify: restart mongodb
-    - name: Add config for DB connection
-      become: true
-      ansible.builtin.template:
-        src: templates/db_config.j2
-        dest: /home/ubuntu/db_config
-      tags: app-tag
 
     - name: Add unit file for Puma
       become: true
@@ -26,6 +20,13 @@
         dest: /etc/systemd/system/puma.service
       tags: app-tag
       notify: reload puma
+
+    - name: Add config for DB connection
+      become: true
+      ansible.builtin.template:
+        src: templates/db_config.j2
+        dest: /home/ubuntu/db_config
+      tags: app-tag
 
     - name: Enable puma
       become: true
@@ -45,6 +46,8 @@
         state: present
         chdir: /home/ubuntu/reddit
       tags: deploy-tag
+
+
 
   handlers:
   - name: restart mongodb
